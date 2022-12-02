@@ -1,0 +1,10 @@
+* # ignore everythin
+!*/ allow subfolders
+*~
+!README.md
+!LICENSE
+!config.nims
+!*.nimble
+!.gitignore
+!src/aoc*.nim
+!src/input/*.txt
