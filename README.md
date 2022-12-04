@@ -17,9 +17,17 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 4
+<details>
+<summary>Day 4 spoiler</summary>
+
+No real twist here, just have to be careful when considering *edge* cases, especially for overlapping.
+</details>
+
 ### Day 3
 <details>
 <summary>Here's some words missing from this day's description: </summary>
+
 > the Elves are divided into **distinct non-intersecting** groups of three
 
 I almost thought it's going to be a combinatorial hell! Otherwise, `system:set` make it a breeze.
