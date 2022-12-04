@@ -9,7 +9,7 @@ bin           = @[
 "aoc01",
 "aoc02",
 "aoc03",
-#"aoc04",
+"aoc04",
 #"aoc05",
 #"aoc06",
 #"aoc07",
