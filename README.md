@@ -17,6 +17,13 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 5
+<details>
+<summary>Day 5 spoiler</summary>
+
+Parsing the initial state is the hard part. My initial solution for this is as imperative as it is ugly, but at least it's one pass over the input. Actual execution is a no-brainer.
+</details>
+
 ### Day 4
 <details>
 <summary>Day 4 spoiler</summary>
