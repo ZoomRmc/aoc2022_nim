@@ -17,6 +17,12 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 6
+<details>
+<summary>Day 6 spoiler</summary>
+The day where easy beats smart.
+</details>
+
 ### Day 5
 <details>
 <summary>Day 5 spoiler</summary>
