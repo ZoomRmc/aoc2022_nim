@@ -1,4 +1,4 @@
-import std/[strutils, sequtils, setutils, tables, options, strformat, strscans, algorithm, sets]
+import std/[setutils, tables, algorithm, sets]
 import zero_functional
 
 const
@@ -8,12 +8,12 @@ const
 
 type
   Tree = int8
-  Map = array[SIZE*SIZE, Tree]
+  Map[T] = array[SIZE*SIZE, T]
 
 func `{}`[T](s: openArray[T], p: tuple[y: int, x: int]): T =
   s[p.y * SIZE + p.x]
 
-func `{}=`[T](s: var openArray[T], p: tuple[y: int, x: int]; v: T) =
+proc `{}=`[T](s: var openArray[T], p: tuple[y: int, x: int]; v: T) =
   s[p.y * SIZE + p.x] = v
 
 iterator circ(n: int): (int, int) =
@@ -21,39 +21,27 @@ iterator circ(n: int): (int, int) =
     for p in [ (n, i), (i, SIZE-n-1), (SIZE-n-1, SIZE-i-1), (SIZE-i-1, n) ]:
       yield p
 
-func isVisible(map: Map; p: tuple[y: int, x: int]): bool =
-  let height = map{p}
-  var
-    maxl, maxr, maxt, maxb = 0
-    vis = (true, true, true, true)
-  for i in 0..<p.x:
-    let h = map{(p.y, i)}
-    if h > maxl: maxl = h
-    if maxl >= height:
-      vis[0] = false
-      break
-  for i in countDown(SIZE-1, p.x+1):
-    let h = map{(p.y, i)}
-    if h > maxr: maxr = h
-    if maxr >= height:
-      vis[1] = false
-      break
-  for i in 0..<p.y:
-    let h = map{(i, p.x)}
-    if h > maxt: maxt = h
-    if maxt >= height:
-      vis[2] = false
-      break
-  for i in countDown(SIZE-1, p.y+1):
-    let h = map{(i, p.x)}
-    if h > maxb: maxb = h
-    if maxb >= height:
-      vis[3] = false
-      break
-  #debugecho "r:", r, " c:",c, " ", (vis[0] or vis[1] or vis[2] or vis[3])
-  vis[0] or vis[1] or vis[2] or vis[3]
+proc fillVMapRC(vmap: var Map[bool]; map: Map[int]; hor: static bool) =
+  template markIfVisible(i, rc: int; max: var int) =
+    let pt = when hor: (rc, i) else: (i, rc)
+    let h = map{pt}
+    if h > max:
+      vmap{pt} = true
+      max = h
 
-func scenicScore(map: Map; p: tuple[y: int, x: int]): int =
+  for rc in 1..SIZE-2:
+    var (maxA, maxB) = when hor: (map{(rc, 0)}, map{(rc, SIZE-1)})
+      else: (map{(0, rc)}, map{(SIZE-1, rc)})
+    var i = 1
+    while i < SIZE-1 and maxA < 9:
+      markIfVisible(i, rc, maxA)
+      i.inc()
+    i = SIZE-2
+    while i > 0 and maxB < 9:
+      markIfVisible(i, rc, maxB)
+      i.dec()
+
+func scenicScore(map: Map[int]; p: tuple[y: int, x: int]): int =
   let height = map{p}
   var
     l, r, t, b = 0
@@ -77,24 +65,22 @@ func scenicScore(map: Map; p: tuple[y: int, x: int]): int =
   l * r * t * b
 
 proc main*(silent: bool = false) =
-  var map: Map
+  var map: Map[int]
 
   let input = lines(INPUTF) --> to(seq[string])
   for y in 0..<SIZE:
     for x in 0..<SIZE:
       map{(y, x)} = int8(ord(input[y][x]) - '0'.ord)
 
-  block Part1:
-    var totalvisible = edgeC
-    for n in 1..(SIZE div 2):
-      for p in circ(n):
-        totalvisible.inc(map.isVisible(p).ord)
-    if SIZE mod 2 == 1:
-      let c = (SIZE div 2) + (SIZE mod 2)
-      totalvisible.inc( map.isVisible((c,c)).ord )
-    echo totalvisible # 1703
+  block part1:
+    var vmap: Map[bool]
+    for n in 0..<SIZE:
+      vmap.fillVMapRC(map, true)
+      vmap.fillVMapRC(map, false)
+    let p1 = edgeC + (vmap --> map(it.ord()).sum())
+    echo p1 # 1703
 
-  block Part2:
+  block part2:
     var maxScenicScore = 0
     for n in 1..(SIZE div 2):
       for p in circ(n):
