@@ -17,6 +17,18 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 8
+<details>
+<summary>Day 8 spoiler</summary>
+Again, no-tricks imperative code with branching, loops in breaks in my initial solution.
+</details>
+
+### Day 7
+<details>
+<summary>Day 7 spoiler</summary>
+We could get the total sizes for each folder while parsing, but I opted for building a clean proper filesystem while parsing and walking it for the first part. Not much reason to change it for the second.
+</details>
+
 ### Day 6
 <details>
 <summary>Day 6 spoiler</summary>
