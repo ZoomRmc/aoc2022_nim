@@ -17,6 +17,18 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 10
+<details>
+<summary>Day 10 spoiler</summary>
+Again I opt for separating parsing and executing commands. The fact it's easier to reason about the bugs this way is a bonus.
+</details>
+
+### Day 9
+<details>
+<summary>Day 9 spoiler</summary>
+Nothing unusual, this day favours separating primitive routines into their own procedures and writing clean simple logic.
+</details>
+
 ### Day 8
 <details>
 <summary>Day 8 spoiler</summary>
