@@ -17,6 +17,12 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 11
+<details>
+<summary>Day 11 spoiler</summary>
+As is common for AoC, this would be a nice task, if not for tedious parsing, especially considering I manage to forget how Pegs work during the year! Keeping a lambda in an object and using bool-indexed array is very satisfying.
+</details>
+
 ### Day 10
 <details>
 <summary>Day 10 spoiler</summary>
