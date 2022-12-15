@@ -19,6 +19,12 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 12
+<details>
+<summary>Day 12 spoiler</summary>
+Another day, another path found. The interesting bit is a new variation of the `Neighbours` iterator, this time with a set and a single yield.
+</details>
+
 ### Day 11
 <details>
 <summary>Day 11 spoiler</summary>
