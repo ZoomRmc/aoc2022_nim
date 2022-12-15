@@ -1,6 +1,8 @@
 # aoc2022_nim
 AoC 2022 in Nim
 
+**[Join Nim-AoC Matrix room](https://matrix.to/#/%23nim-aoc%3Amatrix.org?via=matrix.org&via=envs.net&via=t2bot.io)**
+
 ## Previous years:
  - [2021](https://github.com/ZoomRmc/aoc2021_nim)
  - [2020](https://github.com/ZoomRmc/aoc2020_nim)
