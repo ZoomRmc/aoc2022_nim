@@ -19,6 +19,12 @@ What I'm trying to stick to while writing the solutions, in order of importance:
 ## Notes on specific days
 **Spoilers below!**
 
+### Day 13
+<details>
+<summary>Day 13 spoiler</summary>
+Who would have thought, another recursive parsing task on aour hands. I don't know nothing about that, so a boring state machine it is. No cheating with `eval` of heterogenous arrays that those interpreted languages tempt you to use!
+</details>
+
 ### Day 12
 <details>
 <summary>Day 12 spoiler</summary>
